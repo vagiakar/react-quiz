@@ -1,16 +1,14 @@
 import React from "react";
 import Question from "./Question.js";
 import Answers from "./Answers.js";
+import { useGlobalContext } from "./AppProvider.js";
 
-function Quiz({ quiz, submitQuestion, questionsIndex, setIsCorrectAnswer }) {
+function Quiz() {
+  const { quiz, questionsIndex, submitQuestion } = useGlobalContext();
   return (
     <section className="card quiz">
-      <Question quiz={quiz} questionsIndex={questionsIndex} />
-      <Answers
-        quiz={quiz}
-        questionsIndex={questionsIndex}
-        setIsCorrectAnswer={setIsCorrectAnswer}
-      />
+      <Question />
+      <Answers />
       <button className="btn btn-next" onClick={submitQuestion}>
         {questionsIndex === quiz.length - 1 ? "End Quiz" : "Next"}
       </button>

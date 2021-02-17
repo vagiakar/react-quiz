@@ -1,7 +1,12 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useGlobalContext } from "./AppProvider.js";
 
-function Intro({ handleSubmit, questionsNumber, setQuestionsNumber }) {
+function Intro() {
+  const {
+    handleSubmit,
+    questionsNumber,
+    setQuestionsNumber,
+  } = useGlobalContext();
   return (
     <form className="intro-form" onSubmit={(e) => handleSubmit(e)} action="">
       <label htmlFor="questionsNumber">

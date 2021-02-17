@@ -1,6 +1,7 @@
 import React from "react";
-
-function Question({ quiz, questionsIndex }) {
+import { useGlobalContext } from "./AppProvider.js";
+function Question() {
+  const { quiz, questionsIndex } = useGlobalContext();
   return <h1>{quiz[questionsIndex].question}</h1>;
 }
 

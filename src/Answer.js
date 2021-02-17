@@ -1,11 +1,14 @@
 import React from "react";
 import { useRef, useEffect } from "react";
-
-function Answer({ questionsIndex, answer, correct, setIsCorrectAnswer }) {
+import { useGlobalContext } from "./AppProvider.js";
+function Answer({ answerOption }) {
   const refAnswer = useRef(null);
+  const { questionsIndex, setIsCorrectAnswer } = useGlobalContext();
+  const { answer, correct } = answerOption;
 
   useEffect(() => {
     refAnswer.current.checked = false;
+    setIsCorrectAnswer(false);
   }, [questionsIndex]);
 
   return (
